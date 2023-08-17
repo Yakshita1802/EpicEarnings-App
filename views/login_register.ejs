@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css"> <!-- Link to the external CSS file -->
+  <title>Epic Earnings App</title>
+  <style>
+    /* Additional inline styles for centering and formatting */
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .login-register {
+      display: inline-block;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome to Epic Earnings App</h1>
+  </div>
+  <div class="container">
+    <div class="card login-register"> <!-- Added the login-register class -->
+      <h2><%= isLogin ? 'Login' : 'Register' %></h2>
+      <form action="<%= isLogin ? '/login' : '/register' %>" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit"><%= isLogin ? 'Login' : 'Register' %></button>
+      </form>
+      <% if (isLogin) { %>
+        <p>Don't have an account? <a href="/register">Register here</a></p>
+      <% } else { %>
+        <p>Already registered? <a href="/">Login here</a></p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

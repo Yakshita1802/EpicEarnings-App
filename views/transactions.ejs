@@ -1,0 +1,22 @@
+<!-- views/transactions.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transaction History</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Transaction History</h1>
+  </div>
+  <div class="container">
+    <% transactions.forEach(transaction => { %>
+      <div class="card">
+        <p><strong>Date:</strong> <%= transaction.date.toDateString() %></p>
+        <p><strong>Amount:</strong> <%= transaction.amount %> units</p>
+        <p><strong>Description:</strong> <%= transaction.description %></p>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>

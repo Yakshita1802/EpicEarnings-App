@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css"> <!-- Link to the external CSS file -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .card p {
+      margin: 10px 0;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
+    }
+
+    .logout {
+      color: #007bff;
+      text-decoration: none;
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+    }
+  </style>
+  <title>Dashboard</title>
+</head>
+<body>
+  <div class="header">
+    <h1>Welcome, <%= user.username %>!</h1>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h2>Dashboard</h2>
+      <% if (user.card) { %>
+        <p>Your balance: $<%= user.card.balance.toFixed(2) %></p>
+      <% } else { %>
+        <p>You don't have a card associated with your account.</p>
+        <div class="button-group">
+          <a class="button" href="/add-card">Add a Card</a>
+        </div>
+      <% } %>
+      <a class="logout" href="/logout">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
